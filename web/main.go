@@ -7,8 +7,12 @@ import (
 
 func main() {
 	router := gin.Default()
+
 	router.Static("/home", "view")
+
 	router.GET("/api/v1.0/session", controller.GetSession)
-	// Listen and serve on 0.0.0.0:8080
+
+	router.GET("/api/v1.0/imagecode/:uuid", controller.GetImageCd)
+
 	router.Run(":8080")
 }
